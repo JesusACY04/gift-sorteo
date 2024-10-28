@@ -18,12 +18,14 @@ router.post(
         }
 
         try {
-            const nuevoParticipante = new Participante(req.body);
+           const nuevoParticipante = new Participante(req.body);
             await nuevoParticipante.save();
             res.status(201).send("Registro exitoso");
         } catch (error) {
-            res.status(400).send("Error al registrar participante");
+            console.error("Error al registrar participante:", error);
+            res.status(500).json({ message: "Error al registrar participante", error });
         }
+
     }
 );
 
