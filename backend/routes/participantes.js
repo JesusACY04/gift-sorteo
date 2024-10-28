@@ -8,8 +8,10 @@ router.post(
     [
         body("telefono").matches(/^[0-9]{10}$/).withMessage("Número de teléfono inválido"),
         body("nombre").notEmpty().withMessage("Nombre es requerido"),
-        body("correo").matches(/^[a-zA-Z0-9._%+-]+@cancun\.tecnm\.mx$/).withMessage("Correo institucional inválido"),
-        body("numeroControl").matches(/^L\d{8}$/).withMessage("Número de control inválido")
+        // Cambiamos la validación del correo para que acepte 'L' seguido de 8 dígitos y el dominio 'cancun.tecnm.mx'
+        body("correo").matches(/^L\d{8}@cancun\.tecnm\.mx$/).withMessage("Correo institucional inválido"),
+        // Modificamos el patrón para que 'numeroControl' solo acepte exactamente 8 dígitos
+        body("numeroControl").matches(/^\d{8}$/).withMessage("Número de control inválido")
     ],
     async (req, res) => {
         const errors = validationResult(req);
