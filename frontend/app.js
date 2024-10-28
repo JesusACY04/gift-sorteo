@@ -26,11 +26,11 @@ document.getElementById("registroForm")?.addEventListener("submit", async functi
     };
 
     // Validaciones adicionales en el frontend
-    const correoRegex = /^[a-zA-Z0-9._%+-]+@cancun\.tecnm\.mx$/;
+    const correoRegex = /^L\d{8}@cancun\.tecnm\.mx$/;
     const numeroControlRegex = /^\d{8}$/;
 
     if (!correoRegex.test(participante.correo)) {
-        alert("Por favor, utiliza un correo institucional (@cancun.tecnm.mx).");
+        alert("Por favor, utiliza un correo institucional en el formato 'L########@cancun.tecnm.mx'.");
         return;
     }
 
