@@ -40,7 +40,7 @@ document.getElementById("registroForm")?.addEventListener("submit", async functi
     }
 
     try {
-        const response = await fetch("https://gift-sorteo.vercel.app/api/participantes", {
+        const response = await fetch("https://gift-sorteo.vercel.app/api/participantes"{
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(participante)
